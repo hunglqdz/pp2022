@@ -6,22 +6,22 @@ class Student:
         self.__mark = None
     def set_id(self,id):
         self.__id = id
-    def _get_id(self):
+    def get_id(self):
         return self.__id
     def set_name(self,name):
         self.__name = name
-    def _get_name(self):
+    def get_name(self):
         return self.__name
     def set_DoB(self,date):
         self.__DoB = date
-    def _get_DoB(self):
+    def get_DoB(self):
         return self.__DoB
     def set_mark(self,mark):
         self.__mark = mark
-    def _get_mark(self):
+    def get_mark(self):
         return self.__mark
     def show_info(self):
-        print(f'{self._get_id()}\t{self._get_name()}\t{self._get_DoB()}\t{self._get_mark()}')
+        print(f'{self.get_id()}\t{self.get_name()}\t{self.get_DoB()}')
 
 class Course:
     def __init__(self,id,name):
@@ -29,14 +29,14 @@ class Course:
         self.__name = name
     def set_id(self,id):
         self.__id = id
-    def _get_id(self):
+    def get_id(self):
         return self.__id
     def set_name(self,name):
         self.__name = name
-    def _get_name(self):
+    def get_name(self):
         return self.__name
     def show_info(self):
-        print(f'{self._get_id()}\t{self._get_name()}')
+        print(f'{self.get_id()}\t{self.get_name()}')
 
 stu_list = []
 crs_list = []
@@ -69,17 +69,17 @@ while(run):
         a = input('choose a course: ')
         print('enter mark for each student:')
         for i in range(len(stu_list)):
-            print('student '+str(i+1))
+            print(f'student {stu_list[i].get_id()}:')
             mark = input('mark: ')
             stu_list[i].set_mark(mark)
         print('-----')
         print("students' mark in",a,'course:')
-        print('id\tname\tDoB\tmark')
+        print('id\tname\tmark')
         for i in stu_list:
-            i.show_info()
+            print(f'{i.get_id()}\t{i.get_name()}\t{i.get_mark()}')
     if(select == 4):
         print('here is student list: ')
-        print('id\tname\tDoB\tmark')
+        print('id\tname\tDoB')
         for i in stu_list:
             i.show_info()
     if(select == 5):
